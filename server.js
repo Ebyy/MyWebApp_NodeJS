@@ -1,3 +1,14 @@
+/*********************************************************************************
+*  WEB322 – Assignment 02
+*  I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part *  of this assignment has been copied manually or electronically from any other source 
+*  (including 3rd party web sites) or distributed to other students.
+* 
+*  Name: Eberechi Ogunedo      Student ID: 117277160     Date: 30-May-2019
+*
+*  Online (Heroku) Link: https://pacific-spire-28303.herokuapp.com/
+*
+********************************************************************************/ 
+
 var data = require("./data-service.js");
 var express = require("express");
 var app = express();
@@ -60,7 +71,7 @@ app.get("/managers", function(req,res){
 });
 
 
-// setup http server to listen on HTTP_PORT
+// setup http server to listen on HTTP_PORT , loads up all the data as well
 data.initialize().then (app.listen(HTTP_PORT, onHttpStart))
 .catch(function(err){
     res.json({message: err});

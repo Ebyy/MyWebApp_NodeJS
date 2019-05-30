@@ -2,7 +2,7 @@ const fs = require("fs");
 var employees=[];
 var departments =[];
 var managers = [];
-
+//function call that loads data
 module.exports.initialize = function(){
     return new Promise(function(resolve,reject){
         fs.readFile('./data/employees.json', 'utf8', (err,data)=>{
@@ -40,7 +40,7 @@ module.exports.initialize = function(){
     })
 
 }
-
+// call that returns employees
 module.exports.getAllEmployees = function(){
     return new Promise(function(resolve,reject){
         if(employees.length === 0){
@@ -52,7 +52,7 @@ module.exports.getAllEmployees = function(){
         }
     })  
 }
-
+//call that returns departments
 module.exports.getDepartments = function(){
     return new Promise(function(resolve,reject){
         if(departments.length === 0){
@@ -64,7 +64,7 @@ module.exports.getDepartments = function(){
         }
     })    
 }
-
+//call that returns managers
 module.exports.getManagers = function(){
     return new Promise(function(resolve,reject){
         for(var i = 0; i < employees.length; i++){
