@@ -1,9 +1,10 @@
 /*********************************************************************************
 *  WEB322 – Assignment 02
-*  I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part *  of this assignment has been copied manually or electronically from any other source 
+*  I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part 
+*  of this assignment has been copied manually or electronically from any other source 
 *  (including 3rd party web sites) or distributed to other students.
 * 
-*  Name: Eberechi Ogunedo      Student ID: 117277160     Date: 30-May-2019
+*  Name: Eberechi Ogunedo      Student ID: 117277160     Date: 13-June-2019
 *
 *  Online (Heroku) Link: https://pacific-spire-28303.herokuapp.com/
 *
@@ -53,7 +54,7 @@ app.get("/about", function(req,res){
     res.sendFile(path.join(__dirname,"/views/about.html"));
 });
 
-// route for employees
+// route for employees and conditional filters
 app.get("/employees", function(req,res){
 
     if(req.query.status){
