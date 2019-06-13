@@ -130,7 +130,7 @@ module.exports.getEmployeesByDepartment = function(department){
                 return;
             }else{
                 resolve(byDept);
-                console.log("resolved by dept");
+                //console.log("resolved by dept");
             }
         }
         else{
@@ -145,14 +145,14 @@ module.exports.getEmployeesByManager = function(manager){
     return new Promise(function(resolve,reject){
         if(employees.length > 0){
             let byManager = [];
-            byManager = employees.filter(employees=>employees.employeeNum == manager);
+            byManager = employees.filter(employees=>employees.employeeManagerNum == manager);
             if(byManager.length == 0){
-                reject("no by manger data");
+                reject("no by manager data available");
                 return;
             }
             resolve(byManager);
         }else{
-            reject("no employees data");
+            reject("no employees data available");
         }
     })
 }
@@ -168,7 +168,7 @@ module.exports.getEmployeeByNum = function(num){
             resolve(empObj);
         }
         else{
-            reject("no employees data");
+            reject("no employees data available");
         }
 
     })
