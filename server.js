@@ -153,13 +153,15 @@ app.post("/employees/add", (req,res) => {
 
 
 //route for "employee/value"
-app.get("/employee/:value", function(req,res){
-    console.log("hey");
+app.get("/employees/:value", function(req,res){
     data.getEmployeeByNum(req.params.value)
     .then(function(data){
         res.json(data);
     })
-})
+    .catch(function(err){
+        res.json({message: err});
+    })
+});
 
 // setup http server to listen on HTTP_PORT , loads up all the data as well
 data.initialize().then (app.listen(HTTP_PORT, onHttpStart))
