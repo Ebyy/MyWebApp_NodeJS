@@ -160,16 +160,35 @@ module.exports.getEmployeesByManager = function(manager){
 module.exports.getEmployeeByNum = function(num){   
     return new Promise(function(resolve,reject){
         if(employees.length > 0){
-            let empObj = [];
-            empObj = employees.filter(employees=>employees.employeeNum == num);
-            if(empObj.length == 0){
-                reject("no emp data retrieved");
+            var empObj;
+            var found = false;
+            for(let i=0; i<employees.length; i++){
+                if(employees[i].employeeNum == num){
+                    empObj=employees[i];
+                    found = true;
+                }
+            }
+            if(found == false){
+                reject("employee does not exist");
             }
             resolve(empObj);
         }
         else{
-            reject("no employees data available");
+            reject("no employee data available");
         }
 
     })
 }
+
+//find a given employee and update that employee's data
+module.exports.updateEmployee = function(employeeData) {
+    return new Promise((resolve, reject) => {
+        for(var i=0; i <employees.length; i++){
+            if(employees[i].employeeNum == employeeData.employeeNum){
+                employees[i] = employeeData;
+                i=employeeData.length;
+            }
+        }
+        resolve();
+    })
+  };
